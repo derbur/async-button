@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async Button Demo</title>
+  <script src="async-button.js"></script>
+  </head>
+  <body>
+    <button is="async-button" class="async-btn">Async Button</button>
+  <script>
+    const sleep = (ms) => {
+      return new Promise(resolve => setTimeout(resolve, ms))
+    }
+    const doAsyncThings = async () => {
+      console.log('Doing async things... 👩‍🚀');
+      await sleep(1500);
+      console.log('Done with those things! 👍');
+      return;
+    }
+    document.querySelector('.async-btn').asyncAction = doAsyncThings;
+  </script>
+  </body>
+</html>
